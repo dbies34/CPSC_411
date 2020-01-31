@@ -9,7 +9,7 @@ sense.clear()
 
 while True:
     for event in sense.stick.get_events():
-        printIntructions()
+        sense.show_message("up: pressure | down: temp | left: humidity | right: orientation")
         if event.action == "pressed":
             if event.direction == "up":
                 pressure = sense.get_pressure()
@@ -34,9 +34,5 @@ while True:
                 yaw=round(yaw, 0)
                 sense.show_message("pitch {0} roll {1} yaw {2}".format(str(pitch), str(roll), str(yaw)))
             elif event.action == "pressed":        
-                printIntructions()
-        
-
-def printIntructions():
-    sense.show_message("up: pressure | down: temp | left: humidity | right: orientation")
+                sense.show_message("up: pressure | down: temp | left: humidity | right: orientation")
     
